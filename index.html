@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>ACAPOS Cloud — Aplikasi Kasir & Pembukuan Usaha Modern</title>
+  <meta name="description" content="ACAPOS Cloud adalah sistem POS kasir dan akuntansi terintegrasi untuk Resto, Retail, dan Grosir. Kelola stok real-time, laporan laba rugi otomatis, dan cetak struk mudah.">
+  <meta name="keywords" content="aplikasi kasir, pos cloud, point of sale indonesia, kasir resto, kasir retail, pembukuan usaha, acapos">
+
+  <!-- Favicons -->
+  <link href="https://files.catbox.moe/4p9ecy.png" rel="icon">
+  <link href="https://files.catbox.moe/4p9ecy.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Penyesuaian khusus ACAPOS pada tema Kelly */
+    :root {
+      --accent-color: #4f46e5; /* Indigo modern ACAPOS */
+    }
+    .header .logo img {
+      max-height: 40px;
+      margin-right: 8px;
+    }
+    .hero {
+      position: relative;
+      background-color: #0f172a;
+      overflow: hidden;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 27, 75, 0.82) 100%);
+      z-index: 2;
+    }
+    .hero img.hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.55;
+      filter: saturate(1.1);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 3;
+    }
+    .hero h2 {
+      color: #ffffff;
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .hero p {
+      color: #e2e8f0;
+      font-size: 20px;
+      max-width: 820px;
+      margin: 15px auto 0 auto;
+    }
+    .hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .hero .btn-get-started {
+      background: #4f46e5;
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.45);
+      font-weight: 600;
+      padding: 14px 36px;
+      font-size: 14px;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .hero .btn-get-started:hover {
+      background: #4338ca;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.55);
+      color: #ffffff;
+    }
+    .hero .btn-hero-outline {
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      color: #ffffff;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 30px;
+      margin-left: 10px;
+      transition: all 0.3s ease;
+    }
+    .hero .btn-hero-outline:hover {
+      background: #ffffff;
+      color: #0f172a;
+    }
+    .badge-feature {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .header-cta-btn {
+      background: var(--accent-color);
+      color: #ffffff !important;
+      padding: 10px 24px !important;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+    .header-cta-btn:hover {
+      background: #4338ca !important;
+      color: #ffffff !important;
+    }
+    .header .navmenu {
+      margin-left: auto;
+      margin-right: 2.5rem;
+    }
+    .header .header-social-links {
+      padding-right: 15px;
+      gap: 14px;
+    }
+    .header-social-links a.whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f0fdf4;
+      color: #16a34a !important;
+      font-size: 18px;
+      transition: all 0.2s ease;
+      padding: 0 !important;
+      border: 1px solid #dcfce7;
+    }
+    .header-social-links a.whatsapp-btn:hover {
+      background: #16a34a;
+      color: #ffffff !important;
+      transform: scale(1.05);
+    }
+    .header-social-links .nav-login-link {
+      color: #475569 !important;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 6px 12px;
+      transition: 0.2s;
+    }
+    .header-social-links .nav-login-link:hover {
+      color: var(--accent-color) !important;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between px-lg-4">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="https://files.catbox.moe/4p9ecy.png" alt="ACAPOS Logo">
+        <h1 class="sitename">ACAPOS</h1>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#services">Fitur & Layanan</a></li>
+          <li><a href="#stats">Statistik</a></li>
+          <li><a href="#skills">Performa</a></li>
+          <li><a href="#contact">Kontak</a></li>
+          <li class="d-xl-none"><a href="https://kasir.acapos.my.id">Masuk ke POS</a></li>
+          <li class="d-xl-none"><a href="https://kasir.acapos.my.id" class="header-cta-btn text-white">Daftar Akun Baru</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <!-- Header Social & CTA Links -->
+      <div class="header-social-links d-flex align-items-center">
+        <a href="https://wa.me/6285183221210" target="_blank" class="whatsapp-btn" title="Hubungi via WhatsApp">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://kasir.acapos.my.id" class="d-none d-xl-inline-block nav-login-link">
+          Masuk
+        </a>
+        <a href="https://kasir.acapos.my.id" class="d-none d-xl-inline-block header-cta-btn">
+          Daftar Gratis
+        </a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main class="main">
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero section">
+      <img src="https://files.catbox.moe/4ltfxs.png" alt="ACAPOS Dashboard Banner" class="hero-bg" data-aos="fade-in">
+      <div class="hero-bg-overlay"></div>
+
+      <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+        <h2 data-aos="fade-up" data-aos-delay="200">
+          Aplikasi Kasir Modern &amp; Akuntansi Terpadu
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="300">
+          ACAPOS Cloud mempercepat transaksi kasir Resto &amp; Retail, pantau stok real-time, rekonsiliasi kas laci, hingga laporan laba rugi otomatis dalam satu sistem terintegrasi.
+        </p>
+        <div class="d-flex justify-content-center align-items-center flex-wrap" data-aos="fade-up" data-aos-delay="400">
+          <a href="https://kasir.acapos.my.id" class="btn-get-started">
+            <i class="bi bi-rocket-takeoff me-2"></i>Daftar Sekarang — Gratis
+          </a>
+          <a href="#about" class="btn-hero-outline">
+            <i class="bi bi-arrow-down-circle me-1"></i>Pelajari Fitur
+          </a>
+        </div>
+      </div>
+    </section><!-- End Hero Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="badge-feature">TENTANG ACAPOS CLOUD</span>
+        <h2>Kenapa Memilih ACAPOS?</h2>
+        <p>Dirancang khusus untuk kebutuhan dinamis bisnis kuliner, minimarket, distributor, dan retail modern di Indonesia.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center align-items-center">
+          <div class="col-lg-5">
+            <div class="p-3 bg-white rounded-4 shadow-sm border border-light">
+              <img src="https://files.catbox.moe/4ltfxs.png" class="img-fluid rounded-3 shadow-sm" alt="ACAPOS Interface">
+            </div>
+          </div>
+          <div class="col-lg-7 content">
+            <h2>Solusi POS Kasir Cerdas dengan Dual-Mode Operasional</h2>
+            <p class="fst-italic py-2 text-muted">
+              Tidak perlu membeli software terpisah untuk resto dan toko. ACAPOS menyediakan konfigurasi fleksibel sesuai model bisnis Anda:
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-check-circle-fill"></i> <strong>Mode Resto &amp; Cafe:</strong> <span>Peta meja, split bill, tiket dapur &amp; bar.</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <strong>Mode Retail &amp; Toko:</strong> <span>Scan barcode cepat, multi-satuan Pcs/Dus.</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <strong>Cloud Turso libSQL:</strong> <span>Kecepatan akses data instan &amp; aman.</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-check-circle-fill"></i> <strong>WhatsApp OTP (Nofbox):</strong> <span>Verifikasi login aman bebas repot.</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <strong>Cetak Struk Lengkap:</strong> <span>Printer Bluetooth/USB 58mm &amp; 80mm.</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <strong>Laporan Otomatis:</strong> <span>Laba kotor, HPP FIFO, &amp; neraca kasir.</span></li>
+                </ul>
+              </div>
+            </div>
+            <p class="py-2">
+              Sistem kasir konvensional seringkali lambat, rawan selisih kas, dan sulit memantau stok multi-gudang. ACAPOS memecahkan masalah ini dengan sistem berbasis cloud berkinerja tinggi, menjamin pencatatan kas laci presisi tiap pergantian shift kasir, dan memberikan laporan laba rugi real-time langsung ke genggaman pemilik usaha.
+            </p>
+            <div class="pt-2">
+              <a href="https://kasir.acapos.my.id" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold" style="background: var(--accent-color); border: none;">
+                Mulai Uji Coba Gratis <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section (Fitur Unggulan) ======= -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="badge-feature">MODUL &amp; FITUR TERLENGKAP</span>
+        <h2>Layanan &amp; Fitur ACAPOS</h2>
+        <p>Setiap fitur dirancang untuk meningkatkan omzet penjualan dan menghemat waktu operasional harian Anda.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                </svg>
+                <i class="bi bi-cart-check"></i>
+              </div>
+              <a href="#services" class="stretched-link">
+                <h3>Kasir POS Kilat &amp; Fleksibel</h3>
+              </a>
+              <p>Proses transaksi dalam hitungan detik. Mendukung scanner barcode, diskon bertingkat, ppn, hold order, dan multi metode pembayaran tunai maupun nontunai (QRIS/Transfer).</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
+                </svg>
+                <i class="bi bi-boxes"></i>
+              </div>
+              <a href="#services" class="stretched-link">
+                <h3>Stok &amp; Inventori Multi-Satuan</h3>
+              </a>
+              <p>Kelola barang dalam berbagai satuan (Pcs, Lusin, Dus, Kilogram). Otomatis terpotong saat kasir bertransaksi, dilengkapi peringatan stok menipis dan fitur stock opname.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item item-teal position-relative">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
+                </svg>
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <a href="#services" class="stretched-link">
+                <h3>Laba Rugi &amp; Finansial Otomatis</h3>
+              </a>
+              <p>Perhitungan HPP otomatis menggunakan metode standar akuntansi. Pantau omset harian, keuntungan bersih, pengeluaran kas operasional, dan grafik pertumbuhan bisnis Anda.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item item-red position-relative">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
+                </svg>
+                <i class="bi bi-printer"></i>
+              </div>
+              <a href="#services" class="stretched-link">
+                <h3>Cetak Struk &amp; Tiket Dapur</h3>
+              </a>
+              <p>Mendukung berbagai printer kasir Bluetooth thermal ukuran 58mm &amp; 80mm. Fitur pemisahan pesanan dapur (Kitchen Order) dan bar minuman untuk kelancaran operasional resto.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item item-indigo position-relative">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
+                </svg>
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <a href="#services" class="stretched-link">
+                <h3>WhatsApp OTP &amp; Notifikasi (Nofbox)</h3>
+              </a>
+              <p>Autentikasi keamanan akun menggunakan OTP via WhatsApp resmi melalui Nofbox gateway. Pemilik usaha juga dapat menerima ringkasan penutupan kasir harian via WhatsApp.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item item-pink position-relative">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017135,552.892884789146,523.6137360507377,479.1130797200961C570.822088127516,401.4101419996974,538.4028533101831,300.9140880544542,498.803578255954,222.82413349458382C459.4350823649697,145.24974808386858,387.8964735613205,82.73510046534563,300,80.16085007573887C212.1035264386795,82.73510046534563,140.5649176350303,145.24974808386858,101.19642174404601,222.82413349458382C61.59714668981685,300.9140880544542,29.17791187248398,401.4101419996974,76.38626394926231,479.1130797200961C121.21056489828647,552.892884789146,214.26152928638512,576.1784315230908,300,566.797414625762"></path>
+                </svg>
+                <i class="bi bi-database-check"></i>
+              </div>
+              <a href="#services" class="stretched-link">
+                <h3>Cloud Turso libSQL Database</h3>
+              </a>
+              <p>Infrastruktur database modern terdistribusi dengan replikasi otomatis global. Data transaksi aman, pencarian produk seketika, dan tidak pernah hilang meski perangkat kasir rusak.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Services Section -->
+
+    <!-- ======= Stats Section ======= -->
+    <section id="stats" class="stats section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="badge-feature">KEANDALAN SISTEM</span>
+        <h2>Fakta &amp; Statistik Kinerja</h2>
+        <p>ACAPOS dipercaya untuk menjalankan transaksi penjualan tanpa henti.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="99" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Persen Uptime Cloud (%)</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Detik Waktu Cetak Struk</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Persen Otomatisasi Laba Rugi</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Jam Akses Real-Time / Hari</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Stats Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="badge-feature">BENCHMARK SISTEM</span>
+        <h2>Kinerja &amp; Kecepatan ACAPOS</h2>
+        <p>Tingkat kehandalan dan performa arsitektur Next.js &amp; Turso libSQL pada ACAPOS Cloud.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row skills-content skills-animation">
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill"><span>Kecepatan Input Transaksi Kasir</span> <i class="val">99%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>Akurasi Laporan Keuangan &amp; HPP</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>Kemudahan Operasional Kasir Baru</span> <i class="val">95%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill"><span>Kecepatan Respon Database Turso</span> <i class="val">98%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>Keamanan Autentikasi WhatsApp Nofbox</span> <i class="val">99%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>Kompatibilitas Hardware Kasir</span> <i class="val">96%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="badge-feature">KONSULTASI &amp; DUKUNGAN</span>
+        <h2>Hubungi Tim ACAPOS</h2>
+        <p>Punya pertanyaan tentang implementasi ACAPOS di bisnis Anda? Tim kami siap membantu kapan saja.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+            <div class="info-wrap rounded-4">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Kantor Pusat</h3>
+                  <p>Jakarta Selatan, DKI Jakarta, Indonesia</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-whatsapp flex-shrink-0"></i>
+                <div>
+                  <h3>WhatsApp Support</h3>
+                  <p><a href="https://wa.me/6285183221210" target="_blank" class="text-decoration-none text-dark fw-bold">+62 851-8322-1210</a></p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email</h3>
+                  <p>support@acapos.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                <i class="bi bi-clock flex-shrink-0"></i>
+                <div>
+                  <h3>Jam Operasional</h3>
+                  <p>Senin - Minggu: 08:00 - 22:00 WIB</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="php-email-form rounded-4" data-aos="fade-up" data-aos-delay="200">
+              <h4 class="fw-bold mb-3">Kirim Pesan atau Request Demo Kasir</h4>
+              <p class="text-muted mb-4">Isi form di bawah untuk konsultasi langsung dengan konsultan sistem kasir kami:</p>
+              
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <input type="text" name="name" id="contact-name" class="form-control" placeholder="Nama Lengkap Anda" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="phone" id="contact-phone" class="form-control" placeholder="Nomor WhatsApp (contoh: 0812...)" required>
+                </div>
+                <div class="col-md-12">
+                  <input type="text" name="business" id="contact-business" class="form-control" placeholder="Nama &amp; Jenis Usaha (contoh: Cafe Senja, Retail Mart)" required>
+                </div>
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" id="contact-message" rows="4" placeholder="Ceritakan kebutuhan atau pertanyaan Anda..." required></textarea>
+                </div>
+                <div class="col-md-12 text-center mt-3">
+                  <button type="button" class="btn btn-primary px-4 py-2" id="btn-send-wa" style="background: var(--accent-color); border: none; border-radius: 50px;">
+                    <i class="bi bi-whatsapp me-2"></i>Kirim via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Contact Section -->
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="row gy-4 align-items-center">
+        <div class="col-lg-6 text-center text-lg-start">
+          <div class="d-flex align-items-center justify-content-center justify-content-lg-start mb-2">
+            <img src="https://files.catbox.moe/4p9ecy.png" alt="ACAPOS Logo" style="height: 32px; margin-right: 8px;">
+            <h4 class="m-0 fw-bold">ACAPOS Cloud</h4>
+          </div>
+          <p class="text-muted small m-0">Aplikasi Kasir Pintar (POS) &amp; Akuntansi Usaha Modern Indonesia.</p>
+        </div>
+        <div class="col-lg-6 text-center text-lg-end">
+          <div class="social-links d-inline-flex">
+            <a href="https://wa.me/6285183221210" target="_blank" title="WhatsApp Support"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://kasir.acapos.my.id" title="Login POS"><i class="bi bi-box-arrow-in-right"></i></a>
+            <a href="https://kasir.acapos.my.id" title="Daftar"><i class="bi bi-person-plus"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 text-muted opacity-25">
+
+      <div class="copyright text-center">
+        <p>&copy; 2026 <strong><span>ACAPOS</span></strong>. All Rights Reserved.</p>
+      </div>
+      <div class="credits">
+        Ditenagai oleh Cloud Turso libSQL &amp; Nofbox WhatsApp Gateway.
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/assets/vendor/aos/aos.js"></script>
+  <script src="assets/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/assets/js/main.js"></script>
+
+  <!-- Custom Script for WhatsApp direct consultation -->
+  <script>
+    document.getElementById('btn-send-wa').addEventListener('click', function() {
+      const name = document.getElementById('contact-name').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const business = document.getElementById('contact-business').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !business) {
+        alert('Mohon isi nama dan nama usaha Anda terlebih dahulu.');
+        return;
+      }
+
+      const text = `Halo Admin ACAPOS, saya ingin konsultasi/demo aplikasi kasir:\n- Nama: ${name}\n- WhatsApp: ${phone || '-'}\n- Usaha: ${business}\n- Pesan: ${message || 'Ingin tahu info berlangganan dan demo fitur.'}`;
+      const url = `https://wa.me/6285183221210?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+
+</body>
+
+</html>
